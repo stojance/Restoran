@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:orientation="vertical"
+    android:id="@+id/layoutMain"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+
+    <FrameLayout
+        android:id="@+id/layoutHeader"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkBlue"
+        android:layout_marginTop="0dip"
+        android:layout_marginBottom="2dip">
+
+        <TextView
+            android:id="@+id/txtHeader"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:textColor="@android:color/white"
+            android:clickable="false"
+            android:drawableLeft="@android:drawable/ic_popup_sync"
+            android:focusable="false"
+            android:gravity="center"
+            android:minHeight="0dip"
+            android:minWidth="0dip"
+            android:text="Мени" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutLogin"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="100sp"
+        android:orientation="vertical">
+        <TextView
+            android:text="ШИФРА НА КОРИСНИК:"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_weight="35"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/editSifraKorisnik"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:inputType="numberPassword"
+            android:digits="0123456789"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_weight="40"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btnLogin"
+            android:textAllCaps="false"
+            android:text="НАЈАВА"
+            android:paddingTop="5dip"
+            android:drawableTop="@drawable/user24"
+            android:layout_width="match_parent"
+            android:layout_weight="25"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBarMain"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <GridView
+        android:id="@+id/gridNaracki"
+        android:numColumns="auto_fit"
+        android:gravity="center"
+        android:columnWidth="100dip"
+        android:stretchMode="columnWidth"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/kelner"
+        />
+</LinearLayout>

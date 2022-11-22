@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="ured_id"
+        android:title="Број на уред"
+        android:summary="Број на уред"
+        android:digits="1234567890"
+        android:inputType="number"
+        android:defaultValue="1" />
+    <EditTextPreference
+        android:key="magacin_id"
+        android:digits="1234567890"
+        android:inputType="number"
+        android:title="Број на магацин"
+        android:summary="Број на магацин"
+        android:defaultValue="6" />
+    <EditTextPreference
+        android:key="meni_root_id"
+        android:digits="1234567890"
+        android:inputType="number"
+        android:title="Мени ID"
+        android:summary="Мени ID"
+        android:defaultValue="1" />
+    <EditTextPreference
+        android:key="host_ip"
+        android:title="IP Адреса"
+        android:summary="IP Адреса"
+        android:defaultValue="192.168.222.73" />
+    <EditTextPreference
+        android:key="web_app_name"
+        android:title="Име на веб сервисот"
+        android:summary="Име на веб сервисот"
+        android:defaultValue="restoran-api" />
+    <CheckBoxPreference
+        android:key="samo_licni_naracki"
+        android:title="Само лични нарачки"
+        android:summary="Само лични нарачки"
+        android:defaultValue="false" />
+</PreferenceScreen>

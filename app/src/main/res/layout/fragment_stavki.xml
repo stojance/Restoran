@@ -1,0 +1,67 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".StavkiFragment">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="45sp"
+        android:padding="0dip">
+        <TextView
+            android:id="@+id/tvStavkiHeader"
+            android:layout_height="match_parent"
+            android:layout_width="0dip"
+            android:layout_weight="50"
+            android:gravity="center"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:padding="2dip"
+            android:text="" />
+        <TextView
+            android:id="@+id/tvStavkiNarackaIznos"
+            android:layout_height="match_parent"
+            android:layout_width="0dip"
+            android:layout_weight="50"
+            android:gravity="center"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:padding="2dip"
+            android:textColor="@android:color/holo_red_dark"
+            android:text="" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:background="@color/primary_material_dark"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:text="" />
+    <ProgressBar
+        android:id="@+id/progressBarStavki"
+        android:visibility="gone"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ListView
+        android:id="@+id/listStavki"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:background="@drawable/kelner"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"></ListView>
+    <Button
+        android:id="@+id/btnPecatiPunkt"
+        android:layout_width="match_parent"
+        android:layout_height="45sp"
+        android:background="@color/ColorPrimary"
+        android:drawableBottom="@drawable/print24"
+        android:text=""
+        android:textColor="@color/primary_material_light" />
+</LinearLayout>
