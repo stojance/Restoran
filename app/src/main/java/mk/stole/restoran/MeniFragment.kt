@@ -112,8 +112,8 @@ class MeniFragment : Fragment(), CoroutineScope by MainScope() {
             }
         }
         binding.editKolicinaFrag.setOnEditorActionListener { v, actionId, event ->
-            if (binding.btnArtikalNazivFrag.tag == null || binding.editKolicinaFrag.text.toString()
-                    .isEmpty()
+            if (binding.btnArtikalNazivFrag.tag == null ||
+                binding.editKolicinaFrag.text.toString().isEmpty()
             ) {
                 prazniPolinja()
                 false
@@ -225,7 +225,7 @@ class MeniFragment : Fragment(), CoroutineScope by MainScope() {
         val context = this.context
         showProgress(true)
 
-        launch {
+        launch(Dispatchers.IO) {
             val meniLista = repo.getMeniFor(meni_id)
             withContext(Dispatchers.Main) {
                 showProgress(false)
@@ -283,7 +283,7 @@ class MeniFragment : Fragment(), CoroutineScope by MainScope() {
         val context = this.context
         var ret = Stavka()
         showProgress(true)
-        launch {
+        launch(Dispatchers.IO) {
             ret = repo.saveStavkaSoNaracal(stavka)
             withContext(Dispatchers.Main) {
                 showProgress(false)
@@ -314,7 +314,7 @@ class MeniFragment : Fragment(), CoroutineScope by MainScope() {
         val context = this.context
         var ret: Array<ArtikalOpis> = emptyArray()
         showProgress(true)
-        launch {
+        launch(Dispatchers.IO) {
             ret = repo.getArtikalOpis(artikal_id)
             withContext(Dispatchers.Main) {
                 showProgress(false)

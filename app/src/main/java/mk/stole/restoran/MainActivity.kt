@@ -282,7 +282,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     private fun loginKorisnik(sifra: String) {
         showProgress(true)
-        launch {
+        launch(Dispatchers.IO) {
             val korisnik: Korisnik = repo.getKorisnik(sifra)
             withContext(Dispatchers.Main) {
                 if (korisnik.korisnik.isNotBlank()) {
@@ -312,11 +312,11 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         val context = this
         narackiLista = null
         showProgress(true)
-        launch {
-            if(SettingsHelper.samoLicniNaracki){
-                narackiLista = repo.getNarackiNaDatumNow(App.korisnik.korisnik)
+        launch(Dispatchers.IO) {
+            narackiLista = if(SettingsHelper.samoLicniNaracki){
+                repo.getNarackiNaDatumNow(App.korisnik.korisnik)
             }else{
-                narackiLista = repo.getNarackiNaDatumNow()
+                repo.getNarackiNaDatumNow()
             }
 
             if (narackiLista != null) {
@@ -383,7 +383,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     private fun kreirajNovaNaracka(masaBroj: Int) {
         showProgress(true)
         val nova = NovaObr(masaBroj)
-        launch {
+        launch(Dispatchers.IO) {
             val rez = repo.createNova(nova)
             withContext(Dispatchers.Main) {
                 /*Toast.makeText(
