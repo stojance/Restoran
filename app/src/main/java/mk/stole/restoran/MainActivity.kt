@@ -114,6 +114,8 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
             false
         })
 
+        binding.editSifraKorisnik.setSelectAllOnFocus(true);
+
         networkMonitor.result = { isAvailable, type ->
             runOnUiThread {
                 when (isAvailable) {
@@ -301,6 +303,8 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
                         .show()
                     binding.editSifraKorisnik.requestFocus()
                     binding.editSifraKorisnik.selectAll()
+                    val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.showSoftInput(binding.editSifraKorisnik, 0)
                 }
                 showProgress(false)
             }

@@ -94,7 +94,7 @@ class StavkiFragment : Fragment(), CoroutineScope by MainScope() {
             narackaGlava = arguments?.getSerializable(NARACKA_GLAVA) as NarackaGlava
         }
         lateinit var stavki: Array<Stavka>
-        launch {
+        launch(Dispatchers.IO) {
             stavki = repo.getNarackaStavki(narackaGlava!!.narackaBroj)
             withContext(Dispatchers.Main) {
                 showProgress(false)
@@ -168,7 +168,7 @@ class StavkiFragment : Fragment(), CoroutineScope by MainScope() {
         val context = this.context
         var ret = Stavka()
         showProgress(true)
-        launch {
+        launch(Dispatchers.IO) {
             ret = repo.saveStavkaSoNaracal(stavka)
             withContext(Dispatchers.Main) {
                 showProgress(false)
@@ -180,7 +180,7 @@ class StavkiFragment : Fragment(), CoroutineScope by MainScope() {
 
     private fun pecati() {
         showProgress(true)
-        launch {
+        launch(Dispatchers.IO) {
             repo.pecati(PecatiObr(narackaGlava!!.narackaBroj))
             withContext(Dispatchers.Main) {
                 showProgress(false)
