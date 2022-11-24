@@ -300,7 +300,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
                     binding.layoutLogin.visibility = View.VISIBLE
                     binding.layoutHeader.visibility = View.GONE
                     binding.txtHeader.text = ""
-                    Toast.makeText(this@MainActivity, "Проблем со најава !!!", Toast.LENGTH_LONG)
+                    Toast.makeText(this@MainActivity, "Проблем со најава !!!", Toast.LENGTH_SHORT)
                         .show()
                     binding.editSifraKorisnik.requestFocus()
                     binding.editSifraKorisnik.selectAll()
@@ -344,7 +344,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         Toast.makeText(
             this@MainActivity,
             naracka.naziv,
-            Toast.LENGTH_LONG
+            Toast.LENGTH_SHORT
         ).show()
 
         if (naracka.narackaBroj == 0) {
