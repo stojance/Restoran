@@ -284,6 +284,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     private fun loginKorisnik(sifra: String) {
         showProgress(true)
+        binding.btnLogin.isEnabled = false
         launch(Dispatchers.IO) {
             val korisnik: Korisnik = repo.getKorisnik(sifra)
             withContext(Dispatchers.Main) {
@@ -307,6 +308,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
                     imm.showSoftInput(binding.editSifraKorisnik, 0)
                 }
                 showProgress(false)
+                binding.btnLogin.isEnabled = true
             }
         }
     }
