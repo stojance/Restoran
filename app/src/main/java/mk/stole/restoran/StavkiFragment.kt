@@ -34,8 +34,7 @@ private const val NARACKA_GLAVA = "narackaGlava"
 class StavkiFragment : Fragment(), CoroutineScope by MainScope() {
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private var _binding: FragmentStavkiBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentStavkiBinding
     private var narackaGlava: NarackaGlava? = null
     private val repo: RestoranRepo = RestoranRepo()
 
@@ -51,7 +50,7 @@ class StavkiFragment : Fragment(), CoroutineScope by MainScope() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentStavkiBinding.inflate(inflater, container, false)
+        binding = FragmentStavkiBinding.inflate(inflater, container, false)
         binding.tvStavkiHeader.text = narackaGlava!!.naziv
         binding.btnPecatiPunkt.setOnClickListener {
             pecati()
@@ -84,10 +83,9 @@ class StavkiFragment : Fragment(), CoroutineScope by MainScope() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
     }
 
-    fun fetchStavki() {
+    private fun fetchStavki() {
         val context = this.context
         showProgress(true)
         if(narackaGlava == null){

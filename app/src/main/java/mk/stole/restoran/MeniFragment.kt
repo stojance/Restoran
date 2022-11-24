@@ -33,8 +33,8 @@ class MeniFragment : Fragment(), CoroutineScope by MainScope() {
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private var _binding: FragmentMeniBinding? = null
-    private val binding get() = _binding!!
+
+    private lateinit var binding :FragmentMeniBinding
 
     internal data class StavkaTag(var redID: Int, var artikal_ID: Int)
     private data class MeniIstorija(var meni_id: Int, var naziv: String)
@@ -59,7 +59,7 @@ class MeniFragment : Fragment(), CoroutineScope by MainScope() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentMeniBinding.inflate(inflater, container, false)
+        binding = FragmentMeniBinding.inflate(inflater, container, false)
 
         binding.btnKolicinaMinusFrag.setOnClickListener {
             if (binding.btnArtikalNazivFrag.tag == null) {
@@ -218,7 +218,6 @@ class MeniFragment : Fragment(), CoroutineScope by MainScope() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
     }
 
     private fun fetchMeni(meni_id: Int, naziv: String = "") {

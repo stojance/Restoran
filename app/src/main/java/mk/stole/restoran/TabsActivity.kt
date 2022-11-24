@@ -14,25 +14,23 @@ import mk.stole.restoran.databinding.ActivityTabsBinding
 
 
 class TabsActivity : AppCompatActivity() {
-    private var _binding: ActivityTabsBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: ActivityTabsBinding
     private var narackaGlava: NarackaGlava = NarackaGlava()
-
     private lateinit var pageChangeCallback: ViewPager2.OnPageChangeCallback
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        _binding = ActivityTabsBinding.inflate(layoutInflater)
+        binding = ActivityTabsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setSupportActionBar(binding.toolbar)
+
         supportActionBar?.apply {
-            title = "Нарачка"
+            this.title = "Нарачка"
             // show back button on toolbar
             // on back button press, it will navigate to parent activity
-            setDisplayHomeAsUpEnabled(true)
-            setDisplayShowHomeEnabled(true)
+            this.setDisplayHomeAsUpEnabled(true)
+            this.setDisplayShowHomeEnabled(true)
         }
 
         narackaGlava =
@@ -90,6 +88,5 @@ class TabsActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         binding.tabsViewpager.unregisterOnPageChangeCallback(pageChangeCallback)
-        _binding = null
     }
 }
