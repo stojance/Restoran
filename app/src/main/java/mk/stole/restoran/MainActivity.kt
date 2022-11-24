@@ -341,12 +341,11 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     }
 
     private fun otvoriNaracka(naracka: NarackaGlava) {
-        Toast.makeText(
+        /*Toast.makeText(
             this@MainActivity,
             naracka.naziv,
             Toast.LENGTH_SHORT
-        ).show()
-
+        ).show()*/
         if (naracka.narackaBroj == 0) {
             showDialogZaMasaBroj()
         } else {
